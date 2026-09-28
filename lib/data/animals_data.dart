@@ -1,6 +1,6 @@
-// import "..."
+import '../models/animal.dart';
 
-List<Animal> dummyAnimals = [
+final List<Animal> dummyAnimals = [
   Animal(
     name: "Bengal Tiger",
     type: "Mammal",
