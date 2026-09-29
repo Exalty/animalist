@@ -269,3 +269,116 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+// Listview
+// body: ListView(
+// children: <Widget>[
+// Container(
+// padding: EdgeInsets.all(15),
+// child: Text('Flutter Widget: Penggunaan ListView Class',
+// style: TextStyle(fontSize: 30, fontWeight:
+// FontWeight.bold)
+// ),
+// ),
+// Container(
+// padding: EdgeInsets.all(15),
+// child: Text( 'Lorem Ipsum',
+// style: TextStyle(fontSize: 16)
+// ),
+// ),
+// ]
+// ),
+
+// listview.builder
+// body: ListView.builder(
+// itemBuilder: (context, index) {
+// return Card(
+// child: Padding(
+// padding: const EdgeInsets.all(15.0),
+// Modul Praktikum: Praktikum Teknologi dan Pemrograman Mobile 33
+// Jurusan Informatika UPN “Veteran” Yogyakarta
+// child: Text('Index $index', style: TextStyle(fontSize:
+// 30)),
+// ),
+// );
+// },
+// itemCount: 12,
+// ),
+
+// Listtile
+// ListTile(
+// leading: CircleAvatar(
+// child: Text("B"),
+// ),
+// title: Text(
+// "Budi Doremi"
+// ),
+// subtitle: Text(
+// "Ini subtitle"
+// ),
+// trailing: Icon(Icons.home),
+// );
+
+// gridview
+// body: GridView(
+// gridDelegate:
+// SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+// children: <Widget>[
+// FlutterLogo(),
+// FlutterLogo(),
+// FlutterLogo(),
+// FlutterLogo(),
+// ],
+// ),
+
+// GridView
+// body: GridView.builder(
+// gridDelegate:
+// SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+// itemBuilder: (_, index) => FlutterLogo(),
+// itemCount: 4,
+// ),
+
+// Single Child Scroll View
+// body: Column(
+// mainAxisSize: MainAxisSize.min,
+// mainAxisAlignment: MainAxisAlignment.spaceAround,
+// children: <Widget>[
+// Container(
+// color: const Color(0xffeeee00),
+// height: 400.0,
+// alignment: Alignment.center,
+// child: const Text('Fixed Height Content'),
+// ),
+// Container(
+//   color: const Color(0xff008000),
+// height: 450.0,
+// alignment: Alignment.center,
+// child: const Text('Fixed Height Content'),
+// ),
+// ],
+// ),
+// body: SingleChildScrollView(
+// child: Column(
+// mainAxisSize: MainAxisSize.min,
+// mainAxisAlignment: MainAxisAlignment.spaceAround,
+// children: <Widget>[
+// Container(
+// color: const Color(0xffeeee00),
+// height: 400.0,
+// alignment: Alignment.center,
+// child: const Text('Fixed Height Content'),
+// ),
+// Container(
+// color: const Color(0xff008000),
+// height: 450.0,
+// alignment: Alignment.center,
+// child: const Text('Fixed Height Content'),
+// ),
+// ],
+// ),
+// ),
+
+
+
+
