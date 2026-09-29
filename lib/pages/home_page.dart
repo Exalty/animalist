@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFE),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFF2E7D32),
         elevation: 0,
         title: const Text(
           'Animals List',
@@ -168,16 +168,16 @@ class HomePage extends StatelessWidget {
                           vertical: 3,
                         ),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF7F7FA),
-                          border: Border.all(color: Colors.grey.shade300),
+                          color: const Color(0xFFE8F5E9),
+                          border: Border.all(color: const Color(0xFFC8E6C9)),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
                           habitatName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 10,
-                            color: Colors.grey.shade700,
-                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF2E7D32),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       );

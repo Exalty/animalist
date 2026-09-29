@@ -16,7 +16,13 @@ class AnimalistApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: const Color(0xFF2E7D32),
+          primary: const Color(0xFF2E7D32),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF2E7D32),
+          foregroundColor: Colors.white,
+          elevation: 0,
         ),
       ),
       home: const LoginPage(),

@@ -11,12 +11,8 @@ class AnimalDetailPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFE),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        backgroundColor: const Color(0xFF2E7D32),
+        automaticallyImplyLeading: false,
         title: Text(
           animal.name,
           style: const TextStyle(
@@ -31,35 +27,40 @@ class AnimalDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Gambar Hewan
-            Image.network(
-              animal.image,
+            // Gambar Hewan (BoxFit.contain agar gambar utuh dan tidak terpotong)
+            Container(
               width: double.infinity,
-              height: 250,
-              fit: BoxFit.cover,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Container(
-                  height: 250,
-                  width: double.infinity,
-                  color: Colors.grey.shade200,
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  height: 250,
-                  width: double.infinity,
-                  color: Colors.grey.shade200,
-                  child: const Icon(
-                    Icons.broken_image,
-                    size: 60,
-                    color: Colors.grey,
-                  ),
-                );
-              },
+              height: 280,
+              color: Colors.black,
+              child: Center(
+                child: Image.network(
+                  animal.image,
+                  fit: BoxFit.contain,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Container(
+                      height: 280,
+                      width: double.infinity,
+                      color: Colors.black87,
+                      child: const Center(
+                        child: CircularProgressIndicator(color: Colors.white),
+                      ),
+                    );
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 280,
+                      width: double.infinity,
+                      color: Colors.black87,
+                      child: const Icon(
+                        Icons.broken_image,
+                        size: 60,
+                        color: Colors.grey,
+                      ),
+                    );
+                  },
+                ),
+              ),
             ),
 
             Padding(
@@ -117,8 +118,8 @@ class AnimalDetailPage extends StatelessWidget {
                           vertical: 8,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(color: Colors.grey.shade300),
+                          color: const Color(0xFFE8F5E9),
+                          border: Border.all(color: const Color(0xFFC8E6C9)),
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: const [
                             BoxShadow(
@@ -130,10 +131,10 @@ class AnimalDetailPage extends StatelessWidget {
                         ),
                         child: Text(
                           activity,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 13,
-                            color: Colors.grey.shade800,
-                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF2E7D32),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       );
@@ -143,6 +144,41 @@ class AnimalDetailPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 8,
+                offset: Offset(0, -2),
+              ),
+            ],
+          ),
+          child: ElevatedButton.icon(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back),
+            label: const Text(
+              'Kembali',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF2E7D32),
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              elevation: 0,
+            ),
+          ),
         ),
       ),
     );

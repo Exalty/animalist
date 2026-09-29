@@ -12,6 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
+  bool isLoginFailed = false; // State error handling sesuai Modul 3
 
   // Kredensial login sesuai ketentuan tugas:
   // Username: NIM (contoh: 124240004)
@@ -30,13 +31,19 @@ class _LoginPageState extends State<LoginPage> {
         (username == 'admin' && password == 'admin');
 
     if (isSuccess) {
-      // Navigasi push replacement ke Home Page sesuai clue soal
+      setState(() {
+        isLoginFailed = false;
+      });
+      // Navigasi push replacement ke Home Page sesuai clue kuis & Modul 4
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
       );
     } else {
-      // Tampilkan snackbar merah jika login gagal
+      // Sesuai Modul 3: update isLoginFailed untuk dynamic styling border & tampilkan SnackBar
+      setState(() {
+        isLoginFailed = true;
+      });
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -73,13 +80,13 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   width: 56,
                   height: 56,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFE8F5E9),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
-                    Icons.menu,
-                    color: Colors.grey.shade700,
+                  child: const Icon(
+                    Icons.pets,
+                    color: Color(0xFF2E7D32),
                     size: 26,
                   ),
                 ),
@@ -116,6 +123,13 @@ class _LoginPageState extends State<LoginPage> {
                         TextField(
                           controller: _usernameController,
                           keyboardType: TextInputType.text,
+                          onChanged: (_) {
+                            if (isLoginFailed) {
+                              setState(() {
+                                isLoginFailed = false;
+                              });
+                            }
+                          },
                           decoration: InputDecoration(
                             hintText: 'Username',
                             hintStyle: TextStyle(
@@ -132,12 +146,19 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide(color: Colors.grey.shade300),
+                              borderSide: BorderSide(
+                                color: isLoginFailed
+                                    ? Colors.red
+                                    : Colors.grey.shade300,
+                                width: isLoginFailed ? 1.5 : 1.0,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                color: Colors.deepPurple,
+                              borderSide: BorderSide(
+                                color: isLoginFailed
+                                    ? Colors.red
+                                    : const Color(0xFF2E7D32),
                                 width: 1.5,
                               ),
                             ),
@@ -149,6 +170,13 @@ class _LoginPageState extends State<LoginPage> {
                         TextField(
                           controller: _passwordController,
                           obscureText: !_isPasswordVisible,
+                          onChanged: (_) {
+                            if (isLoginFailed) {
+                              setState(() {
+                                isLoginFailed = false;
+                              });
+                            }
+                          },
                           decoration: InputDecoration(
                             hintText: 'Password',
                             hintStyle: TextStyle(
@@ -179,12 +207,19 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide(color: Colors.grey.shade300),
+                              borderSide: BorderSide(
+                                color: isLoginFailed
+                                    ? Colors.red
+                                    : Colors.grey.shade300,
+                                width: isLoginFailed ? 1.5 : 1.0,
+                              ),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                color: Colors.deepPurple,
+                              borderSide: BorderSide(
+                                color: isLoginFailed
+                                    ? Colors.red
+                                    : const Color(0xFF2E7D32),
                                 width: 1.5,
                               ),
                             ),
@@ -196,20 +231,19 @@ class _LoginPageState extends State<LoginPage> {
                         ElevatedButton(
                           onPressed: _login,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFF1F1F8),
-                            foregroundColor: Colors.indigo.shade800,
-                            elevation: 0,
+                            backgroundColor: const Color(0xFF2E7D32),
+                            foregroundColor: Colors.white,
+                            elevation: 1,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.grey.shade300),
                             ),
                           ),
                           child: const Text(
                             'Login',
                             style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
                             ),
                           ),
                         ),
