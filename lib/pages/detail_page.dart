@@ -27,6 +27,40 @@ class AnimalDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /*
+            // Kodingan sebelumnya: Foto tampil penuh memenuhi layar tanpa black bar (BoxFit.cover)
+            // (Catatan: Foto berformat vertikal/portrait bisa sedikit terpotong di bagian atas/bawah)
+            Image.network(
+              animal.image,
+              width: double.infinity,
+              height: 250,
+              fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Container(
+                  height: 250,
+                  width: double.infinity,
+                  color: Colors.grey.shade200,
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  height: 250,
+                  width: double.infinity,
+                  color: Colors.grey.shade200,
+                  child: const Icon(
+                    Icons.broken_image,
+                    size: 60,
+                    color: Colors.grey,
+                  ),
+                );
+              },
+            ),
+            */
+
             // Gambar Hewan (BoxFit.contain agar gambar utuh dan tidak terpotong)
             Container(
               width: double.infinity,

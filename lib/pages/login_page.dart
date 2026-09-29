@@ -15,8 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   bool isLoginFailed = false; // State error handling sesuai Modul 3
 
   // Kredensial login sesuai ketentuan tugas:
-  // Username: NIM (contoh: 124240004)
-  // Password: Nama Prodi (contoh: Sistem Informasi)
+  // Username: 124240004
+  // Password: si
   final String _expectedNim = '124240004';
   final String _expectedProdi = 'sistem informasi';
 
@@ -255,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // Helper text
                 Text(
-                  'Username: NIM | Password: Nama Prodi',
+                  'Username: 124240004 | Password: si',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey.shade600,
