@@ -13,6 +13,7 @@ class AnimalistApp extends StatelessWidget {
     return MaterialApp(
       title: 'Animalist',
       debugShowCheckedModeBanner: false,
+      // Pengaturan tema aplikasi dengan warna hijau (Forest Green)
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -25,7 +26,7 @@ class AnimalistApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const LoginPage(),
+      home: const LoginPage(), // Halaman pertama yang dimuat saat aplikasi dijalankan
     );
   }
 }

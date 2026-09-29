@@ -1,11 +1,12 @@
+// Model class Animal sebagai blueprint struktur data hewan (Modul 3 - State & Data)
 class Animal {
-  final String name;
-  final String type;
-  final num weight;
-  final List<String> habitat;
-  final num height;
-  final List<String> activities;
-  final String image;
+  final String name;             // Nama hewan
+  final String type;             // Tipe/kelompok hewan (Mammal, Reptile, Bird, dll)
+  final num weight;              // Berat hewan
+  final List<String> habitat;    // Daftar habitat tempat hidup
+  final num height;              // Tinggi/panjang hewan
+  final List<String> activities; // Daftar aktivitas hewan
+  final String image;            // URL foto hewan dari internet
 
   const Animal({
     required this.name,

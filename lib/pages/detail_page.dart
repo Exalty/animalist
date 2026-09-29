@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/animal.dart';
 
+// Halaman Detail Hewan (menampilkan seluruh data sesuai Modul 2, 3, dan 4)
 class AnimalDetailPage extends StatelessWidget {
+  // Menerima data objek Animal yang dikirim dari HomePage via konstruktor (Modul 4 - Passing Data)
   final Animal animal;
 
   const AnimalDetailPage({super.key, required this.animal});
@@ -12,7 +14,7 @@ class AnimalDetailPage extends StatelessWidget {
       backgroundColor: const Color(0xFFFBFBFE),
       appBar: AppBar(
         backgroundColor: const Color(0xFF2E7D32),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false, // Menghilangkan tombol kembali default di AppBar atas (Modul 4)
         title: Text(
           animal.name,
           style: const TextStyle(
@@ -180,6 +182,7 @@ class AnimalDetailPage extends StatelessWidget {
           ],
         ),
       ),
+      // Tombol Kembali di bagian bawah (Footer) menggunakan Navigator.pop() (Modul 4 - Navigation)
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
@@ -194,7 +197,7 @@ class AnimalDetailPage extends StatelessWidget {
             ],
           ),
           child: ElevatedButton.icon(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pop(context), // Kembali ke halaman sebelumnya
             icon: const Icon(Icons.arrow_back),
             label: const Text(
               'Kembali',

@@ -1,5 +1,6 @@
 import '../models/animal.dart';
 
+// Data dummy daftar hewan yang digunakan dalam aplikasi (Modul 3 & Soal Kuis)
 final List<Animal> dummyAnimals = [
   Animal(
     name: "Bengal Tiger",

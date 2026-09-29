@@ -56,12 +56,13 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      // Menampilkan daftar hewan dalam bentuk Grid 2 kolom (Modul 2 - Scrollable Widgets)
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: GridView.builder(
           itemCount: dummyAnimals.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: 2, // 2 kolom
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
             childAspectRatio: 0.72,
@@ -75,6 +76,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  // Widget Card untuk menampilkan masing-masing hewan
   Widget _buildAnimalCard(BuildContext context, Animal animal) {
     return Card(
       elevation: 1.5,
@@ -85,8 +87,8 @@ class HomePage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       color: Colors.white,
       child: InkWell(
+        // Navigasi ke Halaman Detail Hewan dengan passing objek Animal lewat konstruktor (Modul 4)
         onTap: () {
-          // Navigasi ke Halaman Detail Hewan
           Navigator.push(
             context,
             MaterialPageRoute(
